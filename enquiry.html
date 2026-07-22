@@ -92,7 +92,7 @@
         <a href="tel:+61491750844" style="color: #111111;" style-hover="color: #F93822;">+61 (0)491 750 844</a>
       </div>
     </div>
-    <form style="display: flex; flex-direction: column; gap: 28px;">
+    <form action="https://formspree.io/f/mbdnaade" method="POST" onSubmit="{{ submitEnquiry }}" style="display: flex; flex-direction: column; gap: 28px;">
       <label style="display: flex; flex-direction: column; gap: 8px;">
         <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8A85;">NAME</span>
         <input name="name" type="text" autocomplete="name" style="border: none; border-bottom: 1px solid #111111; background: transparent; padding: 10px 0; font-family: 'Archivo', Helvetica, sans-serif; font-size: 17px; color: #111111;">
@@ -133,8 +133,14 @@
         <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8A85;">ABOUT THE PROJECT</span>
         <textarea name="message" rows="5" style="border: 1px solid #E5E5E0; background: #FFFFFF; padding: 14px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 16px; color: #111111; line-height: 1.6; resize: vertical;"></textarea>
       </label>
-      <button type="button" onClick="{{ sendEnquiry }}" data-btn="dark" style="align-self: flex-start; cursor: pointer; background: #111111; color: #FAFAF8; border: none; padding: 16px 32px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer;" style-hover="background: #F93822;">Send enquiry →</button>
-      <div style="font-size: 13px; font-weight: 300; color: #8A8A85; max-width: 420px; line-height: 1.6;">Sending opens your email app with everything pre-filled, addressed to hello@proofcreative.com.au.</div>
+      <button type="submit" data-btn="dark" style="align-self: flex-start; cursor: pointer; background: #111111; color: #FAFAF8; border: none; padding: 16px 32px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer;" style-hover="background: #F93822;">{{ submitLabel }}</button>
+      <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size: 15px; font-weight: 400; color: #111111; max-width: 420px; line-height: 1.6; border-left: 2px solid #F93822; padding-left: 16px;">Thanks — your enquiry has been sent. We'll reply within one business day.</div>
+      </sc-if>
+      <sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size: 15px; font-weight: 400; color: #B52310; max-width: 420px; line-height: 1.6;">Something went wrong sending your enquiry. Please email <a href="mailto:hello@proofcreative.com.au" style="color: #B52310;">hello@proofcreative.com.au</a> directly.</div>
+      </sc-if>
+
     </form>
   </div>
 </main>
@@ -145,22 +151,30 @@
       <a href="index.html"><img src="assets/logo-white.png" alt="Proof Creative" style="width: 132px; height: auto;"></a>
       <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: #8A8A85;">CREATIVE, BUILT TO LAST.</div>
     </div>
-    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8A8A85;">© 2026 Proof Creative · proofcreative.com.au</div>
+    <div style="display: flex; gap: 24px; align-items: baseline; flex-wrap: wrap; font-family: 'IBM Plex Mono', monospace; font-size: 12px; color: #8A8A85;"><a href="privacy-policy.html" style="color: #8A8A85; text-decoration: underline; text-underline-offset: 3px;">Privacy Policy</a><div>© 2026 Proof Creative · proofcreative.com.au</div></div>
   </div>
 </footer>
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
+  state = { status: 'idle' };
   renderVals() {
     return {
-      sendEnquiry: (e) => {
-        const form = e.target.closest('form');
-        const v = (n) => (form.elements[n] && form.elements[n].value.trim()) || '—';
-        const subject = encodeURIComponent(`Project enquiry — ${v('company') !== '—' ? v('company') : v('name')}`);
-        const body = encodeURIComponent(
-          `Name: ${v('name')}\nEmail: ${v('email')}\nPhone: ${v('phone')}\nCompany / brand: ${v('company')}\nProject type: ${v('type')}\nIndicative budget: ${v('budget')}\n\nAbout the project:\n${v('message')}`
-        );
-        window.location.href = `mailto:hello@proofcreative.com.au?subject=${subject}&body=${body}`;
+      submitLabel: this.state.status === 'sending' ? 'Sending…' : 'Send enquiry →',
+      showSuccess: this.state.status === 'success',
+      showError: this.state.status === 'error',
+      submitEnquiry: (e) => {
+        e.preventDefault();
+        const form = e.target;
+        this.setState({ status: 'sending' });
+        fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        }).then((res) => {
+          if (res.ok) { form.reset(); this.setState({ status: 'success' }); }
+          else { this.setState({ status: 'error' }); }
+        }).catch(() => this.setState({ status: 'error' }));
       }
     };
   }
