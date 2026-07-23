@@ -167,14 +167,36 @@ class Component extends DCLogic {
         e.preventDefault();
         const form = e.target;
         this.setState({ status: 'sending' });
+        const data = new FormData(form);
+        const val = (n) => (data.get(n) || '').toString().trim();
         fetch(form.action, {
           method: 'POST',
-          body: new FormData(form),
+          body: data,
           headers: { 'Accept': 'application/json' }
         }).then((res) => {
           if (res.ok) { form.reset(); this.setState({ status: 'success' }); }
           else { this.setState({ status: 'error' }); }
         }).catch(() => this.setState({ status: 'error' }));
+
+        fetch('https://api.hsforms.com/submissions/v3/integration/submit/443370178/385040a1-12c8-4aa1-987a-044a6a2f17ab', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fields: [
+              { name: 'firstname', value: val('name') },
+              { name: 'email', value: val('email') },
+              { name: 'phone', value: val('phone') },
+              { name: 'company', value: val('company') },
+              { name: 'project_type', value: val('type') },
+              { name: 'indicative_budget', value: val('budget') },
+              { name: 'about_the_project', value: val('message') }
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: document.title
+            }
+          })
+        }).catch(() => {});
       }
     };
   }
