@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-AU">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,16 +9,20 @@
 <x-dc>
 <helmet>
 <meta charset="utf-8">
-<title>Start a Project — Proof Creative</title>
-<meta name="description" content="Start a project with Proof Creative. Tell us about your brand, packaging or production challenge and we’ll come back within one business day.">
+<title>Start a Project | Proof Creative</title>
+<meta name="description" content="Start a branding, website, social campaign, packaging or AI-to-Reality project with Proof Creative.">
 <link rel="canonical" href="https://proofcreative.com.au/enquiry.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Proof Creative">
-<meta property="og:title" content="Start a Project — Proof Creative">
-<meta property="og:description" content="Start a project with Proof Creative. Tell us about your brand, packaging or production challenge and we’ll come back within one business day.">
+<meta property="og:title" content="Start a Project | Proof Creative">
+<meta property="og:description" content="Start a branding, website, social campaign, packaging or AI-to-Reality project with Proof Creative.">
 <meta property="og:url" content="https://proofcreative.com.au/enquiry.html">
 <meta property="og:image" content="https://proofcreative.com.au/assets/hero-watermark.jpg">
+<meta property="og:image:alt" content="Start a Project | Proof Creative">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Start a Project | Proof Creative">
+<meta name="twitter:description" content="Start a branding, website, social campaign, packaging or AI-to-Reality project with Proof Creative.">
+<meta name="twitter:image" content="https://proofcreative.com.au/assets/hero-watermark.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
 <script src="./nav-scroll.js"></script>
@@ -46,6 +50,7 @@
   nav[aria-label="Case study navigation"] a:hover, section a[href^="mailto:"]:hover, footer a:hover { color: #F93822 !important; }
   main a[href^="case-study"]:hover [data-card-title], #work a:hover [data-card-title] { color: #F93822 !important; }
   summary::-webkit-details-marker { display: none; }
+  @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; scroll-behavior: auto !important; } }
   @media (max-width: 900px) {
     [data-desktop-nav] { display: none !important; }
     [data-burger] { display: block !important; }
@@ -86,9 +91,8 @@
   <div style="display: grid; grid-template-columns: 1fr 560px; gap: 96px; align-items: start;">
     <div style="display: flex; flex-direction: column; gap: 32px;">
       <h1 style="margin: 0; font-size: clamp(48px, 5vw, 72px); font-weight: 600; letter-spacing: -0.03em; line-height: 1.05;">Start a project.</h1>
-      <p style="margin: 0; font-size: 18px; font-weight: 300; line-height: 1.7; color: #555550; max-width: 440px; text-wrap: pretty;">Tell us about your brand, product and goals. We'll reply within one business day with next steps — usually a 30-minute discovery call.</p>
+      <p style="margin: 0; font-size: 18px; font-weight: 300; line-height: 1.7; color: #555550; max-width: 440px; text-wrap: pretty;">Tell us about your business, brand or product. We'll reply within one business day with next steps — usually a 30-minute discovery call.</p>
       <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 300;">
-        <a href="mailto:hello@proofcreative.com.au" style="color: #111111; text-decoration: underline; text-underline-offset: 4px; text-decoration-color: #F93822;" style-hover="color: #F93822;">hello@proofcreative.com.au</a>
         <a href="tel:+61491750844" style="color: #111111;" style-hover="color: #F93822;">+61 (0)491 750 844</a>
       </div>
     </div>
@@ -112,10 +116,12 @@
       <label style="display: flex; flex-direction: column; gap: 8px;">
         <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8A85;">PROJECT TYPE</span>
         <select name="type" style="border: none; border-bottom: 1px solid #111111; background: transparent; padding: 10px 0; font-family: 'Archivo', Helvetica, sans-serif; font-size: 17px; color: #111111;">
-          <option>Branding</option>
-          <option>Design Realisation / Packaging</option>
+          <option>Branding / identity</option>
+          <option>Website design</option>
+          <option>Social strategy / campaigns</option>
+          <option>Packaging / Design Realisation</option>
           <option>AI-to-Reality</option>
-          <option>Ongoing retainer</option>
+          <option>Ongoing support</option>
           <option>Something else</option>
         </select>
       </label>
@@ -133,12 +139,12 @@
         <span style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8A85;">ABOUT THE PROJECT</span>
         <textarea name="message" rows="5" style="border: 1px solid #E5E5E0; background: #FFFFFF; padding: 14px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 16px; color: #111111; line-height: 1.6; resize: vertical;"></textarea>
       </label>
-      <button type="submit" data-btn="dark" style="align-self: flex-start; cursor: pointer; background: #111111; color: #FAFAF8; border: none; padding: 16px 32px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer;" style-hover="background: #F93822;">{{ submitLabel }}</button>
+      <button type="submit" data-btn="dark" style="align-self: flex-start; cursor: pointer; background: #111111; color: #FAFAF8; border: none; padding: 16px 32px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em; cursor: pointer;" style-hover="background: #F93822;">Send enquiry</button>
       <sc-if value="{{ showSuccess }}" hint-placeholder-val="{{ false }}">
         <div style="font-size: 15px; font-weight: 400; color: #111111; max-width: 420px; line-height: 1.6; border-left: 2px solid #F93822; padding-left: 16px;">Thanks — your enquiry has been sent. We'll reply within one business day.</div>
       </sc-if>
       <sc-if value="{{ showError }}" hint-placeholder-val="{{ false }}">
-        <div style="font-size: 15px; font-weight: 400; color: #B52310; max-width: 420px; line-height: 1.6;">Something went wrong sending your enquiry. Please email <a href="mailto:hello@proofcreative.com.au" style="color: #B52310;">hello@proofcreative.com.au</a> directly.</div>
+        <div style="font-size: 15px; font-weight: 400; color: #B52310; max-width: 420px; line-height: 1.6;">Something went wrong sending your enquiry. Please call us on <a href="tel:+61491750844" style="color: #B52310;">+61 (0)491 750 844</a> directly.</div>
       </sc-if>
 
     </form>

@@ -17,4 +17,13 @@
   };
   window.addEventListener('scroll', update, { passive: true });
   update();
+
+  // close the mobile burger menu when a nav link inside it is clicked
+  document.addEventListener('click', (e) => {
+    const link = e.target.closest && e.target.closest('details[data-burger] a');
+    if (link) {
+      const d = link.closest('details[data-burger]');
+      if (d) d.removeAttribute('open');
+    }
+  });
 })();
