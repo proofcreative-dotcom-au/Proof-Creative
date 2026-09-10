@@ -187,6 +187,20 @@
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   state = { status: 'idle' };
+  leadTracked = false;
+  trackLead() {
+    if (this.leadTracked) return;
+    this.leadTracked = true;
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'generate_lead', {
+        form_name: 'project_enquiry',
+        form_location: 'enquiry_page'
+      });
+    }
+    if (/[?&]debug_lead=1/.test(window.location.search)) {
+      console.log('[generate_lead] fired', typeof window.gtag === 'function' ? 'via gtag' : 'gtag missing');
+    }
+  }
   renderVals() {
     return {
       submitLabel: this.state.status === 'sending' ? 'Sending…' : 'Send enquiry →',
@@ -203,7 +217,7 @@ class Component extends DCLogic {
           body: data,
           headers: { 'Accept': 'application/json' }
         }).then((res) => {
-          if (res.ok) { form.reset(); this.setState({ status: 'success' }); }
+          if (res.ok) { form.reset(); this.setState({ status: 'success' }); this.trackLead(); }
           else { this.setState({ status: 'error' }); }
         }).catch(() => this.setState({ status: 'error' }));
 
