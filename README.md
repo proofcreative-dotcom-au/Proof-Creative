@@ -12,3 +12,9 @@ Static site, no build step.
 - `index.html` + 12 pages, `assets/` + `uploads/` images
 - `support.js`, `nav-scroll.js`, `reveal.js`, `image-slot.js` — runtime scripts (required)
 - `sitemap.xml`, `robots.txt`
+
+## Uploading to GitHub (read before dragging files)
+- This folder contains **67** files. If GitHub's uploader says 66, `.nojekyll` was skipped - macOS Finder hides dotfiles and leaves them out of a drag selection.
+- `.nojekyll` must exist at the repo root or Pages runs the files through Jekyll. `CNAME` must exist or the apex domain drops.
+- Both already live in the repo, and an upload only adds/overwrites, never deletes - so a 66-file push is safe. Only a repo wipe would lose them.
+- To include hidden files in a drag, press Cmd+Shift+. in Finder first.
