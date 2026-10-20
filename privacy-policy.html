@@ -27,17 +27,19 @@
   gtag('js', new Date());
   gtag('config', 'G-BBBW6MDG21');
 </script>
+<!-- Microsoft Clarity -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "z0i3a489xn");
+</script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <meta charset="utf-8">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
-<link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#111111">
 <meta name="robots" content="noindex, follow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -270,7 +272,8 @@
       <li>understand general website performance.</li>
     </ul>
     <p>Proof Creative does not use information derived from website activity for behavioural or targeted advertising unless that practice is clearly disclosed and any notice or choice required by law has been provided.</p>
-    <p>If we introduce non-essential analytics, advertising pixels or other material tracking technologies, we will update this policy and any relevant website notice.</p>
+    <p><strong>Website analytics.</strong> We use Google Analytics and Microsoft Clarity to understand how visitors use this website, so we can improve it. These tools use cookies to collect information such as the pages you visit, how long you spend on them, how you arrived at the site, your approximate location and the device and browser you use. Microsoft Clarity may record how you scroll and click; text typed into forms is not recorded. We do not use this information to identify you. You can opt out of Google Analytics with the <a href="https://tools.google.com/dlpage/gaoptout">Google Analytics Opt-out Browser Add-on</a>, or block cookies in your browser settings.</p>
+    <p>If we introduce advertising pixels or other material tracking technologies, we will update this policy and any relevant website notice.</p>
     <p>You can control many cookies through your browser settings. Disabling essential browser functions may affect how some websites operate.</p>
   </section>
 
@@ -378,5 +381,23 @@
   </div>
 </footer>
 </x-dc>
+<script>
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    var label = (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 50);
+    var page = location.pathname;
+    var hasGtag = typeof window.gtag === 'function';
+    if (href.indexOf('enquiry.html') !== -1) {
+      if (hasGtag) gtag('event', 'cta_click', { button_text: label, page_path: page, cta_location: link.getAttribute('data-cta') || '' });
+      if (window.clarity) clarity('event', 'cta_click');
+    }
+    if (href.indexOf('tel:') === 0) {
+      if (hasGtag) gtag('event', 'phone_click', { page_path: page });
+      if (window.clarity) clarity('event', 'phone_click');
+    }
+  });
+</script>
 </body>
 </html>

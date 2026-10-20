@@ -39,17 +39,19 @@
   gtag('js', new Date());
   gtag('config', 'G-BBBW6MDG21');
 </script>
+<!-- Microsoft Clarity -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "z0i3a489xn");
+</script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <meta charset="utf-8">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
-<link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#111111">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -121,7 +123,15 @@
   <p style="margin: 0 0 80px 0; font-size: 18px; font-weight: 300; line-height: 1.65; color: #555550; max-width: 640px; text-wrap: pretty;">Practical thoughts on packaging production, artwork and the gap between an approved design and a manufactured pack. Written from twenty years of doing it, not from a keyword list.</p>
 
   <section aria-label="Articles" style="margin-bottom: 96px;">
-    <a href="insights-agency-production-partner.html" style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; border-top: 1px solid #111111; padding: 36px 0; color: #111111;">
+    <a href="insights-why-packaging-design-matters.html" style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; border-top: 1px solid #111111; padding: 36px 0; color: #111111;">
+      <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8A85;">BRAND &amp; PACKAGING</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; text-wrap: pretty;">Why Does Packaging Design Matter for My Product?</div>
+        <div style="font-size: 16px; font-weight: 300; color: #555550; line-height: 1.65; max-width: 620px; text-wrap: pretty;">How packaging communicates value, affects production costs and supports a growing range, plus a practical way to assess the return on design.</div>
+        <div style="margin-top: 8px; font-size: 14px; font-weight: 500;">Read <span style="color: #ED1C29;">&rarr;</span></div>
+      </div>
+    </a>
+    <a href="insights-agency-production-partner.html" style="display: grid; grid-template-columns: 1fr 1.6fr; gap: 48px; align-items: start; border-top: 1px solid #E5E5E0; padding: 36px 0; color: #111111;">
       <div style="font-family: 'IBM Plex Mono', monospace; font-size: 11px; letter-spacing: 0.14em; color: #8A8A85;">FOR AGENCIES</div>
       <div style="display: flex; flex-direction: column; gap: 12px;">
         <div style="font-size: clamp(24px, 2.4vw, 32px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; text-wrap: pretty;">When a design agency needs a white-label packaging production partner</div>
@@ -187,5 +197,23 @@
   </div>
 </footer>
 </x-dc>
+<script>
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    var label = (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 50);
+    var page = location.pathname;
+    var hasGtag = typeof window.gtag === 'function';
+    if (href.indexOf('enquiry.html') !== -1) {
+      if (hasGtag) gtag('event', 'cta_click', { button_text: label, page_path: page, cta_location: link.getAttribute('data-cta') || '' });
+      if (window.clarity) clarity('event', 'cta_click');
+    }
+    if (href.indexOf('tel:') === 0) {
+      if (hasGtag) gtag('event', 'phone_click', { page_path: page });
+      if (window.clarity) clarity('event', 'phone_click');
+    }
+  });
+</script>
 </body>
 </html>

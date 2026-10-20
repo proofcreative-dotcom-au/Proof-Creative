@@ -42,17 +42,19 @@
   gtag('js', new Date());
   gtag('config', 'G-BBBW6MDG21');
 </script>
+<!-- Microsoft Clarity -->
+<script>
+  (function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "z0i3a489xn");
+</script>
 </head>
 <body>
 <x-dc>
 <helmet>
 <meta charset="utf-8">
-<link rel="icon" href="/favicon.ico" sizes="48x48">
-<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon-96.png">
-<link rel="icon" type="image/png" sizes="192x192" href="/assets/favicon-192.png">
-<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon-180.png">
-<link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#111111">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..700&amp;family=IBM+Plex+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet">
@@ -294,5 +296,23 @@
   </div>
 </footer>
 </x-dc>
+<script>
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest && e.target.closest('a');
+    if (!link) return;
+    var href = link.getAttribute('href') || '';
+    var label = (link.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 50);
+    var page = location.pathname;
+    var hasGtag = typeof window.gtag === 'function';
+    if (href.indexOf('enquiry.html') !== -1) {
+      if (hasGtag) gtag('event', 'cta_click', { button_text: label, page_path: page, cta_location: link.getAttribute('data-cta') || '' });
+      if (window.clarity) clarity('event', 'cta_click');
+    }
+    if (href.indexOf('tel:') === 0) {
+      if (hasGtag) gtag('event', 'phone_click', { page_path: page });
+      if (window.clarity) clarity('event', 'phone_click');
+    }
+  });
+</script>
 </body>
 </html>
