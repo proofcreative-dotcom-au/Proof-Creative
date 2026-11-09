@@ -71,6 +71,8 @@
   [data-btn="secondary"]:active { background: #000000 !important; transform: translateY(1px); }
   [data-btn="dark"]:hover { background: #ED1C29 !important; color: #FAFAF8 !important; }
   [data-btn="dark"]:active { background: #D62A12 !important; transform: translateY(1px); }
+  [data-btn="outline-red"]:hover { background: #D62A12 !important; color: #FAFAF8 !important; border-color: #D62A12 !important; }
+  [data-btn="outline-red"]:active { background: #B52310 !important; border-color: #B52310 !important; color: #FAFAF8 !important; transform: translateY(1px); }
 
   nav[aria-label="Main"] a:hover, nav[aria-label="Mobile"] a:hover, nav[aria-label="Service categories"] a:hover { color: #ED1C29 !important; }
   nav[aria-label="Case study navigation"] a:hover, section a[href^="mailto:"]:hover, footer a:hover { color: #ED1C29 !important; }
@@ -84,6 +86,7 @@
   @media (max-width: 768px) {
     header, section, footer > div, main { padding-left: 24px !important; padding-right: 24px !important; }
     [style*="grid-template-columns"] { grid-template-columns: 1fr !important; }
+    [data-booking-embed] { height: 900px !important; }
   }
 </style>
 </helmet>
@@ -122,6 +125,7 @@
       <p style="margin: 0; font-size: 18px; font-weight: 300; line-height: 1.7; color: #555550; max-width: 440px; text-wrap: pretty;">Tell us about your business, brand or product. We'll reply within one business day with next steps – usually a 30-minute discovery call.</p>
       <div style="display: flex; flex-direction: column; gap: 8px; font-size: 15px; font-weight: 300;">
         <a href="tel:+61494805533" style="color: #111111;" style-hover="color: #ED1C29;">+61 494 805 533</a>
+        <a href="#book-a-call" data-btn="outline-red" style="align-self: flex-start; margin-top: 16px; display: inline-block; background: transparent; color: #D62A12; border: 1.5px solid #ED1C29; padding: 15px 31px; font-family: 'Archivo', Helvetica, sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.02em;" style-hover="background: #D62A12; color: #FAFAF8;">Book a discovery call ↓</a>
       </div>
     </div>
     <form action="https://formspree.io/f/mbdnaade" method="POST" onSubmit="{{ submitEnquiry }}" style="display: flex; flex-direction: column; gap: 28px;">
@@ -177,6 +181,16 @@
 
     </form>
   </div>
+
+  <section id="book-a-call" aria-labelledby="book-a-call-heading" style="margin-top: 32px; padding: 32px 0 0 0; border-top: 1px solid #E5E5E0; scroll-margin-top: 120px;">
+    <div style="display: flex; flex-direction: column; gap: 16px; margin-bottom: 32px; max-width: 560px;">
+      <h2 id="book-a-call-heading" style="margin: 0; font-size: clamp(32px, 3.2vw, 44px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.1;">Prefer to talk it through?</h2>
+      <p style="margin: 0; font-size: 17px; font-weight: 300; line-height: 1.7; color: #555550; text-wrap: pretty;">Pick a time for a discovery call. Times are shown in your local time zone, and you'll get a Google Meet link by email.</p>
+    </div>
+    <!-- Google Calendar Appointment Scheduling begin -->
+    <iframe data-booking-embed src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2qxoa_GYZPjC4zCpWuMl6Qrnd6aPfg1QhlKNqbENCEyigyJVdWMcQDmHYNz9PapsU4oBiekR1C?gv=true" title="Book a discovery call with Proof Creative" loading="lazy" style="border: 1px solid #E5E5E0; background: #FFFFFF; display: block; width: 100%; height: 680px;" width="100%" height="680" frameborder="0"></iframe>
+    <!-- end Google Calendar Appointment Scheduling -->
+  </section>
 </main>
 
 <footer style="background: #111111; color: #FAFAF8;">
