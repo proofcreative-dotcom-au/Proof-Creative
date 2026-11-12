@@ -1,0 +1,76 @@
+/* Brick Architects / Original client artwork, within the Proof editorial system. */
+.brick-case .case-opening-grid{grid-template-columns:minmax(0,.95fr) minmax(0,1.05fr);align-items:center}
+.brick-case .case-title-column h1{font-size:clamp(56px,6.8vw,112px);line-height:1.02;letter-spacing:-.055em}
+.brick-case .case-introduction{max-width:31ch}
+.brick-story-link{margin-top:22px}
+.brick-case .hero-figure{margin:0}
+.brick-case .hero-figure .case-image{aspect-ratio:1;display:block;width:100%;background:#221f20;clip-path:none}
+.brick-case .hero-figure img{width:100%;height:100%;object-fit:contain;transform:none}
+.brick-case .case-credit{max-width:90ch;line-height:1.7}
+.brick-case .brick-chapter{padding-block:84px 20px;scroll-margin-top:160px}
+.brick-case .brick-editorial-row{display:grid;grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr);column-gap:clamp(40px,7vw,120px);align-items:start;margin-bottom:48px}
+.brick-editorial-row h2{font-size:clamp(35px,4vw,65px);line-height:1.08;letter-spacing:-.045em;margin-top:20px}
+.brick-emphasis{color:var(--callout-red,var(--red))}
+.brick-editorial-row .story-copy{padding-top:31px;max-width:59ch}
+.brick-editorial-row .story-copy p+p{margin-top:20px}
+.brick-figure{margin:0}
+.brick-figure>.case-image{display:block;width:100%;height:auto;aspect-ratio:var(--source-ratio);overflow:hidden;background:#efeeeb;border:0;padding:0}
+.brick-figure>.case-image img{display:block;width:100%;height:100%;object-fit:contain;object-position:center;transform:none!important}
+.brick-figure figcaption{display:grid;grid-template-columns:minmax(135px,.38fr) minmax(0,1fr);align-items:start;column-gap:20px;padding-top:13px;font-size:14px;line-height:1.5}
+.brick-figure figcaption .mono{line-height:1.5}
+.brick-wide{margin-block:36px 12px}
+.brick-case .brick-system{margin-top:44px}
+.brick-case .brick-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;align-items:start}
+.brick-case .brick-pair figcaption{display:block}
+.brick-case .brick-pair figcaption>span{display:block}
+.brick-case .brick-pair figcaption>.mono{margin-bottom:6px}
+.brick-case .brick-digital{margin-top:44px}
+.brick-case .brick-palette{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:44px}
+.brick-palette .swatch-block{height:112px;display:block;background:var(--swatch);border:1px solid rgba(32,32,32,.12);margin-bottom:13px}
+.brick-palette .mono{line-height:1.8}
+.brick-context{font-size:16px;line-height:1.65;color:var(--muted);border-left:1px solid var(--line);padding-left:20px}
+.brick-full-review{border-top:1px solid var(--line);margin-top:28px;max-width:65ch}
+.brick-full-review summary{font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:18px 0;list-style:none}
+.brick-full-review summary::-webkit-details-marker{display:none}
+.brick-full-review summary::after{content:'+';color:var(--red);font-size:25px;line-height:1}
+.brick-full-review[open] summary::after{content:'\2212'}
+.brick-full-review p{font-size:19px;line-height:1.7;padding-bottom:20px}
+.brick-case .brick-client{margin-top:100px}
+.brick-case .brick-client .client-review>blockquote{max-width:30ch}
+.brick-case .brick-client .client-logo-wrap{margin-top:28px}
+.brick-case .related-reading{padding-top:10px}
+/* Featured tile is a real portfolio route, not another sales CTA. */
+#work .brick-home-feature{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.85fr);gap:clamp(35px,5vw,80px);align-items:center;border-bottom:1px solid var(--line);padding-bottom:54px;margin-bottom:16px}
+#work .brick-home-feature .work-image{display:block;aspect-ratio:var(--source-ratio);height:auto;clip-path:none}
+#work .brick-home-feature .work-title{font-size:clamp(40px,4.3vw,70px);line-height:1.04;letter-spacing:-.045em;margin:22px 0}
+#work .brick-home-feature .work-meta{margin-top:0}
+#work .brick-home-feature .work-description{font-size:21px;line-height:1.55;max-width:30ch}
+#work .brick-home-feature .brick-card-note{color:var(--muted);margin:20px 0 22px;line-height:1.6}
+.brick-service-evidence{margin-bottom:76px}
+.client-review .reviewer-company a{text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px}
+.client-review .reviewer-company a:hover{color:var(--red)}
+@media(max-width:1050px){.brick-case .case-title-column h1{font-size:clamp(54px,7vw,82px)}.brick-case .brick-editorial-row{column-gap:36px}.brick-figure figcaption{display:block}.brick-figure figcaption>span{display:block}.brick-figure figcaption>.mono{margin-bottom:6px}}
+@media(max-width:760px){
+ .brick-case .case-opening-grid{grid-template-columns:1fr;gap:34px}
+ .brick-case .case-title-column h1{font-size:clamp(52px,12vw,78px)}
+ .brick-case .case-introduction{max-width:none}
+ .brick-case .brick-chapter{padding-block:52px 12px;scroll-margin-top:130px}
+ .brick-case .brick-editorial-row{grid-template-columns:1fr;row-gap:20px;margin-bottom:30px}
+ .brick-editorial-row h2{font-size:clamp(35px,9vw,49px);margin-top:14px}
+ .brick-editorial-row .story-copy{padding-top:0}
+ .brick-case .brick-pair{grid-template-columns:1fr;gap:32px}
+ .brick-case .brick-palette{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px;margin-top:30px}
+ .brick-palette .swatch-block{height:86px}
+ .brick-case .brick-client{margin-top:58px}
+ .brick-wide{margin-block:25px 10px}
+ #work .brick-home-feature{grid-template-columns:1fr;gap:24px;padding-bottom:34px;margin-bottom:0}
+ #work .brick-home-feature .work-title{font-size:44px;margin:16px 0}
+ #work .brick-home-feature .work-description{font-size:20px;max-width:none}
+ .brick-service-evidence{margin-bottom:45px}
+}
+/* Quote measure follows the displayed text size, not its 16px parent. */
+.brick-case .brick-client .client-review>blockquote{max-width:none;width:100%}
+.brick-case .brick-client .client-review>blockquote p{max-width:29ch}
+.brick-case .brick-client .client-logo-wrap{grid-column:2;grid-row:3}
+.brick-case .brick-client .brick-full-review{grid-column:1/-1;grid-row:4;max-width:none;width:100%;margin-top:30px}
+.brick-case .brick-full-review>div{max-width:72ch}

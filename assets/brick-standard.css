@@ -1,0 +1,42 @@
+/* Brick Architects: shared case-study template, with source artwork below. */
+/* Opening, facts, chapters, story and outcome inherit the same rules as Harris/DMS. */
+.brick-standard .hero-figure .case-image{background:#000;}
+.brick-standard .process-image .case-image{padding:0!important;aspect-ratio:var(--source-ratio);background:#f4f3ef;}
+.brick-standard .case-supplement{padding-top:78px;padding-bottom:70px;}
+.brick-standard .supplement-heading{display:grid;grid-template-columns:.7fr 1.3fr;gap:6vw;align-items:start;margin-bottom:36px;}
+.brick-standard .supplement-heading .story-label h2{margin-top:15px;}
+.brick-standard .supplement-intro{font-size:22px;line-height:1.65;max-width:62ch;padding-top:28px;}
+.brick-standard .system-figure{margin:0;}
+.brick-standard .system-figure .case-image{aspect-ratio:var(--source-ratio);background:#f4f3ef;}
+.brick-standard .system-figure .case-image img{object-fit:contain;transform:none!important;}
+.brick-standard .brick-palette{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;margin-top:32px;}
+.brick-standard .brick-palette .swatch-block{height:78px;}
+.brick-standard .applications-heading{display:grid;grid-template-columns:.7fr 1.3fr;gap:6vw;margin:56px 0 30px;padding-top:30px;border-top:1px solid var(--line);}
+.brick-standard .applications-heading>p:last-child{font-size:20px;line-height:1.65;max-width:65ch;}
+.brick-standard .system-image-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:30px;align-items:start;}
+.brick-standard .system-digital-view{margin-top:36px;}
+.brick-standard .system-image-grid figcaption{flex-direction:column;align-items:flex-start;gap:5px;}
+.brick-standard .system-image-grid figcaption>span:last-child{max-width:none;text-align:left;}
+.brick-standard .brick-client{margin-top:68px;}
+.brick-standard .brick-client .client-review>blockquote{max-width:none;width:100%;}
+.brick-standard .brick-client .client-review>blockquote p{max-width:29ch;}
+.brick-standard .brick-client .client-logo-wrap{grid-column:2;grid-row:3;margin-top:28px;}
+.brick-standard .brick-client .brick-full-review{grid-column:1/-1;grid-row:4;max-width:none;width:100%;margin-top:30px;}
+.brick-standard .brick-full-review>div{max-width:72ch;}
+.brick-standard .section-alias{position:absolute;top:0;left:0;scroll-margin-top:170px;}
+@media(max-width:1050px){
+ .brick-standard .supplement-heading,.brick-standard .applications-heading{gap:5vw;}
+}
+@media(max-width:760px){
+ .brick-standard .case-supplement{padding-top:42px;padding-bottom:35px;}
+ .brick-standard .supplement-heading{grid-template-columns:1fr;gap:20px;margin-bottom:26px;}
+ .brick-standard .supplement-intro{padding-top:0;font-size:20px;}
+ .brick-standard .brick-palette{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 18px;}
+ .brick-standard .brick-palette .swatch-block{height:64px;}
+ .brick-standard .applications-heading{grid-template-columns:1fr;gap:16px;margin-top:38px;}
+ .brick-standard .applications-heading>p:last-child{font-size:19px;}
+ .brick-standard .system-image-grid{grid-template-columns:1fr;gap:28px;}
+ .brick-standard .system-digital-view{margin-top:28px;}
+ .brick-standard .brick-client{margin-top:40px;}
+ .brick-standard .brick-client .client-logo-wrap{grid-column:1;grid-row:auto;}
+}

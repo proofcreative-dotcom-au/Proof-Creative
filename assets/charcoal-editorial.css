@@ -1,0 +1,31 @@
+/* EDITION 09.5 / A quieter editorial hierarchy. Colour only, not typography. */
+/* The source wordmark, client artwork, red fold and interactive states are unchanged. */
+:root{--editorial-charcoal:#30322f;}
+html .barlow-locked :is(.editorial-proofline,.eyebrow-discipline,.expertise-entry-body .expertise-capabilities,.service-fine-detail,.label-rule>.mono.muted){color:var(--editorial-charcoal)!important;}
+html .barlow-locked .expertise-capabilities span{color:var(--editorial-charcoal)!important;opacity:.65;}
+html .barlow-locked .micro-label{color:var(--editorial-charcoal)!important;}
+html .barlow-locked :is(.ink-spread,.check-delivery,.feature-section,.contact-section,.next-project) :is(.micro-label,.service-fine-detail){color:#deddd5!important;}
+/* Give Brick's own colour palette priority rather than repeating a red split heading. */
+html .project-brick-architects .brick-emphasis{color:var(--ink,#202020)!important;}
+/* On the review offer, the hero keeps its red emphasis. Subsequent headings rest. */
+html .barlow-locked.check-page h2 .soft-line,
+html .barlow-locked.proof-check-page h2 .soft-line,
+html .barlow-locked .check-delivery h2 .soft-line,
+html .barlow-locked .check-credit h2 .soft-line,
+html .barlow-locked .check-author h2 .soft-line,
+html .barlow-locked .check-context h2 .soft-line,
+html .barlow-locked .check-enquiry h2 .soft-line{color:inherit!important;}
+/* A supporting homepage offer does not need to compete with Expertise and Why Proof. */
+html .home-page .proof-check-teaser .soft-line,
+html .home-page .check-teaser .soft-line{color:inherit!important;}
+/* Utility-page titles can speak plainly. Their primary actions retain red. */
+html .process-page h1 .soft-line,
+html .enquiry-page h1 .soft-line{color:inherit!important;}
+
+html .home-page .check-teaser h2 .soft-line{color:inherit!important;}
+
+html .edition-three.edition-four.proof-check-page.edition-five.edition-seven.tools-hidden.type-icon-test.barlow-locked.edition-nine.edition-nine-two h2 .soft-line{color:inherit!important;}
+
+html .edition-three.edition-four.process-page.edition-five.edition-seven.tools-hidden.type-icon-test.barlow-locked.edition-nine.edition-nine-two h1 .soft-line{color:inherit!important;}
+
+html .edition-three.edition-four.enquiry-page.edition-five.edition-seven.tools-hidden.type-icon-test.barlow-locked.edition-nine.edition-nine-two h1 .soft-line{color:inherit!important;}

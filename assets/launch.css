@@ -1,0 +1,46 @@
+/* Final production layer. The approved charcoal hierarchy is unchanged. */
+.studio-stationery {padding-top:60px;padding-bottom:92px;scroll-margin-top:120px}
+.studio-stationery .label-rule {margin-bottom:28px}
+.studio-stationery .label-rule p {color:var(--ink)}
+.stationery-feature {margin:0}
+.stationery-open {display:block;position:relative;width:100%;padding:0;border:0;background:#111;cursor:zoom-in;overflow:hidden;color:white}
+.stationery-open picture,.stationery-open img {display:block;width:100%;height:auto}
+.stationery-open img {aspect-ratio:3/2;object-fit:contain;transform:none!important}
+.stationery-view {position:absolute;bottom:24px;right:24px;padding:10px 14px;display:flex;gap:14px;align-items:center;background:rgba(0,0,0,.76);border:1px solid rgba(255,255,255,.24);font-size:12px;color:#fff;opacity:0;transition:opacity 160ms ease}
+.stationery-open:hover .stationery-view,.stationery-open:focus-visible .stationery-view {opacity:1}
+.stationery-open:focus-visible {outline:3px solid var(--red);outline-offset:5px}
+.stationery-caption {display:grid;grid-template-columns:1.25fr 1fr;gap:6vw;align-items:start;padding-top:27px}
+.stationery-caption h2 {font-family:'Instrument Sans',Arial,sans-serif;font-weight:500;font-size:clamp(28px,2.9vw,44px);line-height:1.13;letter-spacing:-.025em;color:var(--ink);margin:0}
+.stationery-caption p {font-family:'Barlow',Arial,sans-serif;font-size:18px;line-height:1.6;color:#30322f;max-width:530px;margin:0}
+.stationery-dialog {padding:0;border:0;max-width:min(95vw,1600px);max-height:94dvh;width:95vw;background:#111;color:#fff;overflow:auto}
+.stationery-dialog::backdrop {background:rgba(0,0,0,.87)}
+.stationery-dialog-bar {display:flex;justify-content:space-between;align-items:center;gap:20px;padding:20px 24px;position:sticky;top:0;background:#111;z-index:1}
+.stationery-dialog-bar p {margin:0;color:#fff}
+.stationery-dialog-bar button {color:#fff;min-height:44px}
+.stationery-dialog>img {display:block;width:100%;height:auto}
+.form-honeypot {position:absolute!important;width:1px;height:1px;left:-9999px;overflow:hidden}
+.form-privacy {font-size:14px;line-height:1.6;color:#50514d;margin-top:24px;max-width:60ch}
+.form-privacy a,.field-hint a {text-decoration:underline;text-underline-offset:3px}
+.form-status:not(:empty) {margin-top:24px;padding:18px 20px;border-left:2px solid var(--red);background:#eae8e1;line-height:1.6;color:var(--ink)}
+.form-status[data-status=success] {border-left-color:var(--ink)}
+.form-status a {text-decoration:underline;text-underline-offset:3px}
+.form-status:empty {display:none}
+.editorial-form [type=submit]:disabled {opacity:.6;cursor:wait}
+.form-field input,.form-field select,.form-field textarea {min-width:0;max-width:100%}
+.footer-motion {color:inherit;background:none;border:0;font:inherit;text-transform:inherit;letter-spacing:inherit;padding:0;cursor:pointer;min-height:36px}
+.footer-motion:hover,.footer-motion:focus-visible {color:var(--red)}
+/* No review toolbar or review-only bottom gutter is published. */
+body.tools-hidden {padding-bottom:0}
+@media (hover:none) {.stationery-view {opacity:1}}
+@media(max-width:760px) {
+ .studio-stationery {padding-top:36px;padding-bottom:58px}
+ .studio-stationery .label-rule {gap:16px;align-items:start}
+ .studio-stationery .label-rule p:last-child {max-width:46%;text-align:right}
+ .stationery-caption {grid-template-columns:1fr;gap:14px;padding-top:23px}
+ .stationery-caption h2 {font-size:30px;max-width:23ch}
+ .stationery-caption p {font-size:18px}
+ .stationery-view {right:10px;bottom:10px;font-size:11px;padding:8px 10px;gap:9px}
+ .stationery-dialog-bar {padding:12px 16px}
+ .stationery-dialog-bar p {max-width:60%;font-size:12px}
+}
+@media(prefers-reduced-motion:reduce) {.stationery-view {transition:none}}

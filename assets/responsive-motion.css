@@ -1,0 +1,24 @@
+/* Edition 09 / Responsive pace. Native navigation must never feel like a loader. */
+.edition-nine .hero h1 .word-line>span{animation-duration:420ms;animation-delay:calc(var(--i)*40ms)}
+.edition-nine .signature-frame{animation-duration:400ms;animation-delay:30ms}
+.edition-nine :is(.case-title-column h1,.check-hero-copy h1){animation:proof-arrive 260ms cubic-bezier(.2,.7,.3,1) both}
+.edition-nine :is(.case-introduction,.case-role,.opening-deck,.case-page .hero-figure){animation-duration:260ms;animation-delay:0ms}
+.js .edition-nine .reveal{transform:translateY(12px);transition:opacity 300ms ease-out,transform 300ms cubic-bezier(.2,.7,.3,1)}
+.js .edition-nine .reveal.in-view{transform:none}
+.js .edition-nine .reveal.delay{transition-delay:40ms}
+.edition-nine .feature-frame{transition-duration:300ms,450ms}
+.edition-nine .feature-frame img{transition-duration:450ms}
+.edition-nine .footer-wordmark img{transition-duration:400ms}
+/* A brief diagonal accent is enough. No interstitial text or logo to wait for. */
+.edition-nine .edition-transition{pointer-events:none}
+.edition-nine .transition-red,.edition-nine .transition-paper{inset:0 -20%;width:140%;clip-path:none;transform:translate3d(-115%,0,0) skewX(-12deg);will-change:transform}
+.edition-nine .transition-paper img,.edition-nine .transition-paper>.mono{display:none}
+.edition-nine.page-leaving .transition-red{animation:proof-cover-in 130ms ease-in both}
+.edition-nine.page-leaving .transition-paper{animation:proof-cover-in 120ms ease-in 10ms both}
+.edition-nine.page-entering .transition-red{animation:proof-cover-out 180ms ease-out both}
+.edition-nine.page-entering .transition-paper{animation:proof-cover-out 160ms ease-out both}
+@keyframes proof-cover-in{from{transform:translate3d(-115%,0,0) skewX(-12deg)}to{transform:translate3d(0,0,0) skewX(-12deg)}}
+@keyframes proof-cover-out{from{transform:translate3d(0,0,0) skewX(-12deg)}to{transform:translate3d(115%,0,0) skewX(-12deg)}}
+@keyframes proof-arrive{from{opacity:.65;transform:translateY(7px)}to{opacity:1;transform:none}}
+html[data-motion="off"] .edition-nine :is(.hero h1 .word-line>span,.signature-frame,.case-title-column h1,.case-introduction,.case-role,.check-hero-copy h1,.reveal){animation:none!important;transition:none!important;transform:none!important;opacity:1!important}
+@media(prefers-reduced-motion:reduce){.edition-nine :is(.hero h1 .word-line>span,.signature-frame,.case-title-column h1,.case-introduction,.case-role,.check-hero-copy h1,.reveal){animation:none!important;transition:none!important;transform:none!important;opacity:1!important}.edition-nine .edition-transition{display:none!important}}

@@ -1,0 +1,128 @@
+/* PROOF / EDITION 09
+   One type palette. Shared optical alignment. Arrows belong to primary CTAs. */
+:root{--proof-display:'Instrument Sans','Helvetica Neue',Arial,sans-serif;--nav-height:44px}
+.edition-nine :is(h1,h2,h3,h4,.case-subtitle,.content-heading){font-family:var(--proof-display);font-stretch:normal;font-variation-settings:normal}
+/* A number never participates in the icon/title alignment row. The icon slot
+   has exactly the first title line's height, even when a title wraps. */
+.edition-nine .aligned-heading{--symbol-size:42px;--symbol-gutter:46px;--symbol-gap:18px;--title-size:clamp(30px,2.8vw,48px);--title-leading:1.12;display:grid;grid-template-columns:var(--symbol-gutter) minmax(0,1fr);grid-template-rows:12px auto;gap:10px var(--symbol-gap);align-items:start;margin:0 0 20px;padding:0;min-width:0}
+.edition-nine .aligned-heading>.icon-index{grid-column:1;grid-row:1;line-height:12px;font-size:13px;margin:0;padding:0;color:var(--callout-red);align-self:start;justify-self:start}
+.edition-nine .aligned-heading>.icon-slot{grid-column:1;grid-row:2;width:var(--symbol-gutter);height:calc(var(--title-size)*var(--title-leading));display:flex;align-items:center;justify-content:flex-start;min-width:0;pointer-events:none}
+.edition-nine .aligned-heading .service-symbol{position:static;display:block;width:var(--symbol-size);height:var(--symbol-size);max-width:none;margin:0;padding:0;object-fit:contain;object-position:center;flex:none;transform:none}
+.edition-nine .aligned-heading>:is(h2,h3){grid-column:2;grid-row:2;align-self:start;font-size:var(--title-size);line-height:var(--title-leading);font-family:var(--proof-display);font-weight:500;letter-spacing:-.04em;margin:0;padding:0;max-width:none;min-width:0;overflow-wrap:normal}
+.edition-nine .aligned-heading.no-index{grid-template-rows:auto;row-gap:0}
+.edition-nine .aligned-heading.no-index>.icon-slot,.edition-nine .aligned-heading.no-index>:is(h2,h3){grid-row:1}
+.edition-nine .expertise-entry-body{padding-left:64px;max-width:none}
+.edition-nine .expertise-entry-heading h3 sup{font-size:.32em;line-height:1.8;vertical-align:top;letter-spacing:0}
+/* Service pages, including multi-line capability headings and packages. */
+.edition-nine .capability-heading{--title-size:clamp(34px,3.2vw,55px);margin-bottom:0}
+.edition-nine .package-heading{--title-size:clamp(26px,2.2vw,34px);--symbol-size:36px;--symbol-gutter:40px;--symbol-gap:16px;margin:0}
+.edition-nine .capability-row{align-items:start}
+.edition-nine .capability-copy{padding-top:22px}
+.edition-nine .package-row{align-items:start}
+/* Process stage symbols share the service-heading geometry. */
+.edition-nine .process-overview-step{display:block;padding-block:24px 12px;min-width:0}
+.edition-nine .process-heading{--title-size:clamp(21px,1.7vw,28px);--symbol-size:30px;--symbol-gutter:32px;--symbol-gap:12px;margin-bottom:18px}
+.edition-nine .process-overview-step>p{margin:0;padding-left:44px}
+.edition-nine .process-step{display:block;padding-block:32px 38px}
+.edition-nine .process-detail-heading{--title-size:clamp(32px,3.7vw,58px);margin-bottom:18px}
+.edition-nine .process-step>p{margin:0;padding-left:64px}
+/* Navigation labels use identical boxes and baselines. A colour/underline
+   response does not shift the surrounding layout. */
+.edition-nine .header-inner{align-items:center}
+.edition-nine .main-nav{align-items:center;gap:clamp(20px,2.2vw,34px);font-family:var(--sans);font-weight:500}
+.edition-nine .main-nav>a,.edition-nine .contact-nav{position:relative;display:inline-flex;align-items:center;justify-content:center;min-height:var(--nav-height);height:var(--nav-height);padding:0;line-height:1;font-size:15px;font-family:var(--sans);font-weight:500;white-space:nowrap;color:var(--ink);text-decoration:none;gap:16px;transition:color 180ms ease,transform 130ms ease}
+.edition-nine .main-nav>a .nav-label,.edition-nine .contact-nav .nav-label{display:block;line-height:1;color:inherit}
+.edition-nine .main-nav>a::after,.edition-nine .contact-nav::after{content:'';position:absolute;left:0;right:0;bottom:5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform 220ms cubic-bezier(.2,.7,.3,1)}
+.edition-nine .main-nav>a:is(:hover,:focus-visible,.active,.nav-engaged),.edition-nine .contact-nav:is(:hover,:focus-visible,.active,.nav-engaged){color:var(--red)}
+.edition-nine .main-nav>a:is(:hover,:focus-visible,.active,.nav-engaged)::after,.edition-nine .contact-nav:is(:hover,:focus-visible,.active,.nav-engaged)::after{transform:scaleX(1)}
+.edition-nine :is(.main-nav>a,.contact-nav):active{transform:translateY(1px)}
+.edition-nine :is(.main-nav>a,.contact-nav):focus-visible{outline:2px solid var(--red);outline-offset:5px;border-radius:0}
+.edition-nine .mobile-menu>a{align-items:center;gap:18px;transition:color 180ms ease}
+.edition-nine .mobile-menu>a:is(:hover,:focus-visible,.active,.nav-engaged){color:var(--red)}
+.edition-nine .mobile-menu>a .nav-label{color:inherit;line-height:1.1}
+/* One optically aligned arrow design, reserved for primary calls to action.
+   Ordinary links remain identifiable by underlines, spacing and hover colour. */
+.edition-nine .cta-arrow{display:block;flex:none;width:20px;height:20px;max-width:none;overflow:visible;color:currentColor;transform:none;transition:transform 220ms ease}
+.edition-nine [data-cta="primary"]{align-items:center}
+.edition-nine .contact-nav .cta-arrow{width:23px;height:23px;color:var(--red)}
+.edition-nine [data-cta="primary"]:is(:hover,:focus-visible) .cta-arrow{transform:translate(2px,-2px)}
+.edition-nine .hero-cta .cta-arrow{width:28px;height:28px}
+.edition-nine .mobile-menu [data-cta="primary"] .cta-arrow{width:25px;height:25px;color:var(--red)}
+.edition-nine .solid-link .cta-arrow{width:22px;height:22px}
+.edition-nine .text-link:not([data-cta]),.edition-nine .index-button:not([data-cta]){gap:0;justify-content:flex-start}
+.edition-nine :is(.text-link,.index-button,.inline-link):hover{color:var(--red)}
+.edition-nine .project-pointer{gap:0;padding-right:17px}
+.edition-nine .maker-select button{justify-content:flex-start;gap:18px}
+.edition-nine .maker-select button.active{border-color:var(--red)}
+.edition-nine .feature-step{padding-right:0}
+.edition-nine .direction-control{line-height:1;font-size:27px}
+.edition-nine .insight-row{grid-template-columns:45px minmax(0,1fr) minmax(240px,.75fr)}
+.edition-nine .insight-arrow{display:none}
+/* Buttons, numerical labels and credit ledgers have stable reading edges. */
+.edition-nine .fee-pair{align-items:baseline}
+.edition-nine .credit-ledger dd{font-variant-numeric:tabular-nums;text-align:right}
+.edition-nine .scope-row{align-items:start}
+.edition-nine .scope-row>.mono{padding-top:.3em}
+.edition-nine .footer-bottom{align-items:start}
+@media(min-width:761px){
+ .edition-nine .main-nav{display:flex}
+ .edition-nine .contact-nav{display:inline-flex}
+ .edition-nine .client-home .client-review>blockquote{min-height:0}
+}
+@media(min-width:761px) and (max-width:1199px){
+ .edition-nine .process-overview{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+ .edition-nine .process-heading{--title-size:25px}
+}
+@media(max-width:1100px){
+ .edition-nine .main-nav{gap:19px;margin-right:0}
+ .edition-nine .main-nav>a,.edition-nine .contact-nav{font-size:14px}
+ .edition-nine .aligned-heading{--symbol-size:38px;--symbol-gutter:40px;--symbol-gap:14px;--title-size:clamp(28px,2.9vw,34px)}
+ .edition-nine .expertise-entry-body{padding-left:54px}
+ .edition-nine .capability-heading{--title-size:34px}
+ .edition-nine .package-heading{--title-size:27px;--symbol-size:34px}
+ .edition-nine .process-heading{--symbol-size:30px;--symbol-gutter:32px;--symbol-gap:12px;--title-size:25px}
+ .edition-nine .process-detail-heading{--title-size:clamp(32px,3.7vw,48px)}
+ .edition-nine .process-step>p{padding-left:54px}
+ .edition-nine .insight-row{grid-template-columns:32px minmax(0,1fr) minmax(170px,.65fr);gap:24px}
+}
+@media(max-width:880px) and (min-width:761px){
+ .edition-nine .header-inner{gap:18px}
+ .edition-nine .main-nav{gap:14px}
+ .edition-nine .main-nav>a,.edition-nine .contact-nav{font-size:14px}
+ .edition-nine .contact-nav{gap:9px}
+}
+@media(max-width:760px){
+ .edition-nine .main-nav,.edition-nine .contact-nav{display:none}
+ .edition-nine .aligned-heading{--symbol-size:32px;--symbol-gutter:34px;--symbol-gap:14px;--title-size:clamp(26px,7.35vw,40px);row-gap:8px;margin-bottom:17px}
+ .edition-nine .expertise-entry-body{padding-left:48px}
+ .edition-nine .expertise-entry-body>p{max-width:none}
+ .edition-nine .capability-heading{--title-size:clamp(28px,7.8vw,35px);margin:0}
+ .edition-nine .capability-copy{padding-top:0}
+ .edition-nine .package-heading{--title-size:27px;--symbol-size:32px;margin:0}
+ .edition-nine .process-overview{grid-template-columns:1fr;gap:0}
+ .edition-nine .process-overview-step{padding-block:24px}
+ .edition-nine .process-heading{--title-size:27px;margin-bottom:14px}
+ .edition-nine .process-overview-step>p{padding-left:48px}
+ .edition-nine .process-detail-heading{--title-size:32px;margin-bottom:18px}
+ .edition-nine .process-step>p{padding-left:48px}
+ .edition-nine .insight-row{grid-template-columns:24px minmax(0,1fr);gap:14px;padding-block:25px}
+ .edition-nine .insight-summary{grid-column:2}
+ .edition-nine .client-rating .text-link{justify-self:start}
+}
+@media(max-width:359px){
+ .edition-nine .aligned-heading{--symbol-size:28px;--symbol-gutter:30px;--symbol-gap:12px;--title-size:25px}
+ .edition-nine .expertise-entry-body,.edition-nine .process-step>p,.edition-nine .process-overview-step>p{padding-left:42px}
+ .edition-nine .capability-heading{--title-size:29px}
+ .edition-nine .package-heading{--title-size:25px}
+ .edition-nine .process-heading{--title-size:26px}
+ .edition-nine .process-detail-heading{--title-size:29px}
+}
+html[data-motion="off"] .edition-nine :is(.main-nav>a,.contact-nav,.cta-arrow,.mobile-menu>a){transition:none!important;transform:none!important}
+html[data-motion="off"] .edition-nine :is(.main-nav>a,.contact-nav)::after{transition:none!important}
+@media(prefers-reduced-motion:reduce){
+ .edition-nine :is(.main-nav>a,.contact-nav,.cta-arrow,.mobile-menu>a){transition:none!important;transform:none!important}
+ .edition-nine :is(.main-nav>a,.contact-nav)::after{transition:none!important}
+}
+/* Contain the portfolio layout-switch animation within its own rail. This
+   prevents a brief horizontal scrollbar while tiles move into List view. */
+.edition-nine #project-collection{overflow-x:clip;overflow-y:visible;overflow-clip-margin:3px}

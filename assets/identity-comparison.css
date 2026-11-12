@@ -1,0 +1,47 @@
+/* Brick Architects comparison. Isolated from the shared case-study layout. */
+.identity-comparison{margin:0;background:#fff;color:var(--ink,#202020);border:1px solid var(--line,#d5d2ca);}
+.comparison-topline{display:flex!important;align-items:center!important;justify-content:space-between!important;gap:20px!important;margin:0!important;padding:22px 30px!important;border-bottom:1px solid #e5e3de;}
+.comparison-topline .mono{font-size:13px!important;letter-spacing:.12em;line-height:1.4!important;max-width:none!important;text-align:left!important;color:#42423f;}
+.comparison-labels{display:flex;justify-content:space-between;padding:22px 30px 0;font-size:13px;letter-spacing:.12em;color:#575852;}
+.comparison-stage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:24px;padding:32px;min-height:260px;background:#fff;isolation:isolate;}
+.comparison-panel{display:flex;justify-content:center;align-items:center;min-width:0;}
+.comparison-panel img{display:block;width:100%;height:auto;max-width:100%;object-fit:contain;transform:none!important;filter:none!important;}
+.comparison-divider,.comparison-range,.comparison-presets,.comparison-desktop-hint{display:none;}
+.comparison-bottomline{display:none;padding:20px 30px;gap:24px;align-items:center;border-top:1px solid #e5e3de;}
+.comparison-bottomline p{font-size:16px;line-height:1.5;max-width:48ch;color:#565652;}
+.comparison-caption{margin:0;padding:20px 30px 24px;font-size:16px;line-height:1.65;color:#565652;}
+.comparison-gallery-link{display:inline;padding:0;border:0;border-radius:0;background:none;color:var(--ink);font:inherit;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;cursor:pointer;}
+.comparison-gallery-link:hover{color:var(--red);}
+.comparison-ready .comparison-desktop-hint{display:inline;}
+.comparison-ready .comparison-stage{display:block;padding:0;height:clamp(280px,35vw,480px);min-height:0;overflow:hidden;}
+.comparison-ready .comparison-panel{position:absolute;inset:0;background:#fff;}
+.comparison-ready .comparison-panel img{width:63%;max-width:780px;height:auto;max-height:75%;}
+.comparison-ready .comparison-new{clip-path:inset(0 0 0 var(--split));}
+.comparison-ready .comparison-divider{position:absolute;display:block;top:0;bottom:0;left:var(--split);width:1px;background:#9b9a93;pointer-events:none;transform:translateX(-.5px);z-index:2;}
+.comparison-grip{position:absolute;top:50%;left:0;display:flex;justify-content:center;align-items:center;gap:5px;width:46px;height:46px;transform:translate(-50%,-50%);border:1px solid #8e8d87;border-radius:50%;background:#f5f3ee;box-shadow:0 2px 8px #0000000c;transition:background .15s,border-color .15s;}
+.comparison-grip i{height:14px;width:1px;background:#33332f;}
+.comparison-ready .comparison-range{display:block;position:absolute;inset:0;margin:0;padding:0;width:100%;height:100%;opacity:0;z-index:4;cursor:ew-resize;touch-action:pan-y;}
+.comparison-stage:focus-within{outline:2px solid var(--red,#ed1c29);outline-offset:4px;}
+.comparison-stage:focus-within .comparison-grip,.comparison-stage.is-dragging .comparison-grip{border-color:var(--red,#ed1c29);background:#fff;}
+.comparison-ready .comparison-bottomline{display:flex;justify-content:space-between;}
+.comparison-ready .comparison-presets{display:flex;gap:0;flex-shrink:0;border:1px solid #c8c5be;}
+.comparison-presets button{min-height:44px;padding:10px 16px;white-space:nowrap;font-family:var(--sans,'Barlow',sans-serif);font-size:15px;line-height:1.2;background:transparent;border:0;border-radius:0;cursor:pointer;color:#282824;}
+.comparison-presets button+button{border-left:1px solid #c8c5be;}
+.comparison-presets button[aria-pressed="true"]{background:#242420;color:#fff;}
+.comparison-presets button:hover:not([aria-pressed="true"]){background:#f1efe9;}
+.comparison-presets button:focus-visible{outline:2px solid var(--red);outline-offset:3px;z-index:2;}
+@media(max-width:760px){
+ .comparison-topline{padding:18px!important;gap:10px!important;}
+ .comparison-topline .mono{font-size:12px!important;letter-spacing:.09em;}
+ .comparison-labels{padding:18px 18px 0;font-size:12px;letter-spacing:.08em;}
+ .comparison-stage{gap:20px;padding:24px 18px;min-height:170px;}
+ .comparison-ready .comparison-stage{height:clamp(220px,60vw,340px);}
+ .comparison-ready .comparison-panel img{width:82%;max-height:78%;}
+ .comparison-ready .comparison-bottomline{flex-direction:column;align-items:stretch;gap:16px;padding:18px;}
+ .comparison-bottomline p{font-size:15px;}
+ .comparison-presets{width:100%;}
+ .comparison-presets button{flex:1;padding:12px 10px;font-size:15px;}
+ .comparison-caption{padding:0 18px 22px;font-size:15px;}
+ .comparison-gallery-link{display:block;margin-top:8px;}
+}
+@media(prefers-reduced-motion:reduce){.identity-comparison *{transition:none!important;}}

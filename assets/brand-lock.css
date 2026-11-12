@@ -1,0 +1,97 @@
+/* PROOF / EDITION 09. Fixed approved type palette. */
+:root,html[data-proof-type="barlow"]{
+ --sans:'Barlow','Helvetica Neue',Arial,sans-serif;
+ --mono:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+ --proof-display:'Instrument Sans','Helvetica Neue',Arial,sans-serif;
+ --callout-red:#cf1825;
+}
+.barlow-locked{font-family:var(--sans);font-weight:400}
+.barlow-locked :is(h1,h2,h3,h4,.case-subtitle){font-family:var(--proof-display)}
+.barlow-locked :is(.mono,.micro-label,.article-byline,.evidence-grid small,.related-reading small,.sample-report-grid span,.expertise-capabilities,.service-fine-detail,.feature-step .step-num,.hero-index,.view-buttons,.filter-buttons sup,.study-selectors button,.form-field label,.test-index,.project-pointer,.prototype-tools,.tools-restore,.preview-guard){
+ font-family:var(--mono)!important;font-weight:500!important;letter-spacing:.12em;text-transform:uppercase;
+}
+.barlow-locked .mono{font-size:14px;line-height:1.5}
+.barlow-locked .micro-label{font-size:14px;line-height:1.55;letter-spacing:.13em}
+.barlow-locked :is(.article-byline,.evidence-grid small,.related-reading small,.sample-report-grid span,.expertise-capabilities,.service-fine-detail,.form-field label,.view-buttons,.study-selectors button){font-size:14px;line-height:1.65}
+.barlow-locked :is(.capability-number,.expertise-marker>.mono,.client-review-source,.client-reviews-foot,.client-review-top,.hero-index){font-size:13px}
+.barlow-locked .brand-descriptor{font-size:12px;line-height:1.45;letter-spacing:.17em}
+.barlow-locked .opening-folio{font-size:13px;letter-spacing:.12em}
+.barlow-locked.homepage-refined .hero-copy .eyebrow{font-size:13px;line-height:1.6;letter-spacing:.13em}
+.barlow-locked .signature-frame .image-overline{font-size:13px;letter-spacing:.12em}
+.barlow-locked :is(.hero-figcaption .mono,.image-coordinates){font-size:12px;letter-spacing:.1em}
+.barlow-locked .main-nav{font-weight:500}
+/* The selected headline face is fixed in Edition 09. */
+html[data-headline="instrument"]{--proof-display:'Instrument Sans','Helvetica Neue',Arial,sans-serif}
+html[data-headline="instrument"] .barlow-locked :is(h1,h2,h3,h4){font-stretch:normal;font-variation-settings:normal;font-weight:500;letter-spacing:-.045em}
+html[data-headline="instrument"] .home-page.homepage-refined #hero-title{font-size:clamp(40px,4.9vw,78px);font-weight:500;letter-spacing:-.052em;font-stretch:normal;line-height:1.08}
+html[data-headline="instrument"] .home-page.homepage-refined #hero-title .precision-line>span{font-weight:500}
+/* The user-drawn service symbols sit in a shared left-hand gutter. */
+.service-symbol{display:block;object-fit:contain;max-width:100%;flex-shrink:0;pointer-events:none;width:44px;height:44px}
+.barlow-locked .expertise-entry-heading{display:grid;grid-template-columns:46px minmax(0,1fr);align-items:center;gap:18px;margin-bottom:19px}
+.expertise-marker{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.expertise-marker .expertise-symbol{width:42px;height:42px;margin:0}
+.expertise-marker>.mono{line-height:1.1;color:var(--callout-red)}
+.barlow-locked .expertise-entry-heading h3{margin:0;min-width:0;align-self:center}
+.barlow-locked .expertise-entry-body{padding-left:64px}
+.barlow-locked .capability-heading{position:static;padding-top:0}
+.capability-marker{display:flex;align-items:center;gap:16px;margin-bottom:22px}
+.capability-marker .capability-symbol{position:static;width:44px;height:44px}
+.barlow-locked .capability-marker .capability-number{margin:0;color:var(--callout-red)}
+.package-symbol{width:40px;height:40px;margin:0 0 17px;object-position:left center}
+.barlow-locked .process-overview-step{padding-top:22px}
+.process-marker{display:flex;align-items:center;gap:13px;margin-bottom:21px}
+.process-marker .process-symbol{position:static;width:40px;height:40px;margin:0}
+.process-marker>.mono{color:var(--callout-red)}
+.barlow-locked .process-overview-step h3{margin-top:0}
+.process-detail-symbol{width:30px;height:30px;margin-top:16px;object-position:left center}
+/* Red is a deliberate emphasis role, not a blanket recolour of the body. */
+.barlow-locked .soft-line,.barlow-locked .check-delivery .soft-line{color:var(--red)!important}
+.barlow-locked :is(.editorial-proofline,.eyebrow-discipline,.expertise-entry-body .expertise-capabilities,.micro-label,.label-rule>.mono.muted){color:var(--callout-red)}
+.barlow-locked .expertise-capabilities span{color:var(--callout-red);opacity:.7}
+.barlow-locked :is(.ink-spread,.check-delivery,.feature-section,.contact-section,.next-project){--callout-red:#ff5a62}
+.barlow-locked :is(.ink-spread,.check-delivery,.feature-section,.contact-section,.next-project) .micro-label{color:var(--callout-red)}
+/* A page fold anchored on its diagonal. Its whole movement stays in a fixed square.
+   The caption's left inset still sits 16px beyond that square. */
+.barlow-locked .signature-frame .hero-image-button::before{content:none;display:none}
+.proof-fold{position:absolute;left:0;top:0;width:var(--proof-corner-size);height:var(--proof-corner-size);z-index:4;pointer-events:none;perspective:180px;perspective-origin:50% 50%;overflow:hidden;contain:paint}
+.fold-bed,.fold-face{position:absolute;inset:0;display:block;clip-path:polygon(100% 0,100% 100%,0 100%)}
+.fold-bed{background:#b71420}
+.fold-face{background:var(--red);transform-origin:50% 50%;transform:rotate3d(1,-1,0,0deg);backface-visibility:hidden;transition:transform 460ms cubic-bezier(.22,.7,.2,1),filter 460ms ease;will-change:transform}
+.fold-score{position:absolute;left:-21%;top:50%;width:142%;height:1px;background:rgba(255,255,255,.18);transform:rotate(-45deg);opacity:0;transition:opacity 350ms ease;pointer-events:none}
+@media(hover:hover) and (pointer:fine){
+ .barlow-locked .signature-frame .hero-image-button:hover .fold-face{transform:rotate3d(1,-1,0,-38deg);filter:brightness(1.07)}
+ .barlow-locked .signature-frame .hero-image-button:hover .fold-score{opacity:1}
+}
+.barlow-locked .signature-frame .hero-image-button:focus-visible .fold-face{transform:rotate3d(1,-1,0,-38deg);filter:brightness(1.07)}
+.barlow-locked .signature-frame .hero-image-button:focus-visible .fold-score{opacity:1}
+/* One short acknowledgement on arrival. No idle looping. */
+html:not([data-motion="off"]) .proof-fold.fold-arrival .fold-face{animation:proof-fold-arrival 1100ms cubic-bezier(.22,.7,.2,1) 1 both}
+@keyframes proof-fold-arrival{0%,30%{transform:rotate3d(1,-1,0,0deg)}58%{transform:rotate3d(1,-1,0,-32deg)}100%{transform:rotate3d(1,-1,0,0deg)}}
+html[data-motion="off"] .proof-fold :is(.fold-face,.fold-score){animation:none!important;transition:none!important;transform:none!important;filter:none!important}
+html[data-motion="off"] .proof-fold .fold-score{opacity:0!important}
+@media(prefers-reduced-motion:reduce){.proof-fold :is(.fold-face,.fold-score){animation:none!important;transition:none!important;transform:none!important;filter:none!important}.proof-fold .fold-score{opacity:0!important}}
+@media(max-width:1100px){
+ .barlow-locked .expertise-entry-heading{grid-template-columns:40px minmax(0,1fr);gap:14px}
+ .expertise-marker .expertise-symbol{width:38px;height:38px}
+ .barlow-locked .expertise-entry-body{padding-left:54px}
+ .barlow-locked .expertise-entry-heading h3{font-size:clamp(26px,2.9vw,32px)}
+}
+@media(max-width:760px){
+ .barlow-locked.homepage-refined .opening-folio>span:nth-child(1),.barlow-locked.homepage-refined .opening-folio .folio-location{font-size:12px;letter-spacing:.1em}
+ .barlow-locked.homepage-refined .opening-folio>span:nth-child(2){font-size:13px;letter-spacing:.12em}
+ .barlow-locked.homepage-refined .hero-copy .eyebrow{font-size:12px;letter-spacing:.11em}
+ .barlow-locked .signature-frame .image-overline{font-size:12px}
+ .barlow-locked :is(.expertise-capabilities,.client-reviews-foot,.client-review-source,.service-fine-detail){font-size:13px;line-height:1.7}
+ .barlow-locked .expertise-entry-heading{grid-template-columns:36px minmax(0,1fr);gap:15px;margin-bottom:16px}
+ .expertise-marker{gap:6px}.expertise-marker .expertise-symbol{width:34px;height:34px}
+ .barlow-locked .expertise-entry-heading h3{font-size:clamp(27px,7.35vw,40px)}
+ .barlow-locked .expertise-entry-body{padding-left:51px}
+ .barlow-locked .process-overview-step{display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px 15px;padding-block:22px}
+ .process-marker{grid-column:1;grid-row:1/3;flex-direction:column-reverse;align-items:flex-start;gap:6px;margin:0}
+ .process-marker .process-symbol{width:34px;height:34px}
+ .barlow-locked .process-overview-step h3{grid-column:2;grid-row:1;margin:0}
+ .barlow-locked .process-overview-step>p{grid-column:2;grid-row:2;margin:0}
+ .process-detail-symbol{width:25px;height:25px;margin-top:13px}
+ html[data-headline="instrument"] .home-page.homepage-refined #hero-title{font-size:clamp(30px,9.8vw,65px);line-height:1.1}
+}
+@media(max-width:359px){.barlow-locked .expertise-entry-heading h3{font-size:28px}.barlow-locked .expertise-entry-body{padding-left:0}.barlow-locked .signature-frame .image-overline{font-size:11px}}

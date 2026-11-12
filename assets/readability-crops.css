@@ -1,0 +1,28 @@
+/* Edition 09.2: original-source fixed crops and measured text sizing. */
+.edition-nine-two .curated-preview{background:#000;aspect-ratio:1.16;overflow:hidden;}
+.edition-nine-two .curated-preview>img,.edition-nine-two .curated-preview:hover>img{width:100%;height:100%;object-fit:contain!important;object-position:center!important;transform:none!important;transition:none!important;}
+.edition-nine-two .collection-image.curated-preview,.edition-nine-two .work-image.curated-preview{aspect-ratio:1.16!important;}
+.edition-nine-two .case-image.curated-case-image{aspect-ratio:var(--source-ratio);padding:0!important;background:#000;}
+.edition-nine-two .case-image.curated-case-image>img{width:100%;height:100%;object-fit:contain!important;transform:none!important;}
+.edition-nine-two .process-image .curated-case-image{max-height:720px;}
+/* Readable folios and captions with room for the slightly larger type. */
+.edition-nine-two .aligned-heading{grid-template-rows:16px auto;}
+.edition-nine-two .aligned-heading>.icon-index{line-height:16px;}
+.edition-nine-two .aligned-heading.no-index{grid-template-rows:auto;}
+.edition-nine-two .label-rule{column-gap:22px;}
+.edition-nine-two .case-figure figcaption{gap:14px;line-height:1.55;}
+.edition-nine-two .collection-meta{column-gap:18px;row-gap:6px;}
+.edition-nine-two .case-credit,.edition-nine-two .collection-attribution{line-height:1.65;}
+@media(max-width:1100px) and (min-width:761px){
+ .edition-nine-two .main-nav{gap:16px;}
+ .edition-nine-two .brand img{width:130px;}
+ .edition-nine-two .brand-descriptor{display:none;}
+ .edition-nine-two .header-inner{column-gap:20px;}
+}
+@media(max-width:760px){
+ .edition-nine-two .case-figure figcaption{flex-direction:column;align-items:flex-start;gap:4px;}
+ .edition-nine-two .case-figure figcaption>span{max-width:100%;text-align:left;}
+ .edition-nine-two .collection-meta{flex-wrap:wrap;}
+ .edition-nine-two .hero-meta{gap:18px;}
+ .edition-nine-two .label-rule{flex-wrap:wrap;gap:12px 20px;}
+}
