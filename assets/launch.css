@@ -44,3 +44,20 @@ body.tools-hidden {padding-bottom:0}
  .stationery-dialog-bar p {max-width:60%;font-size:12px}
 }
 @media(prefers-reduced-motion:reduce) {.stationery-view {transition:none}}
+
+/* Release 10.1: align the motion control with the shared footer links.
+   The pseudo-element preserves a 44px hit area without moving the text. */
+.footer-bottom .social-links {align-items:baseline}
+.footer-bottom .social-links>a,.footer-bottom .footer-motion {white-space:nowrap;flex:0 0 auto}
+.footer-bottom .footer-motion {
+ position:relative;display:inline-flex;align-items:baseline;
+ min-height:0;min-width:0;margin:0;padding:0;line-height:inherit;
+ vertical-align:baseline;appearance:none;-webkit-appearance:none;
+}
+.footer-bottom .footer-motion::before {
+ content:"";position:absolute;left:-4px;right:-4px;top:50%;
+ height:100%;min-height:44px;transform:translateY(-50%);
+}
+.footer-bottom .footer-motion:focus-visible {
+ outline:2px solid var(--red);outline-offset:6px;
+}
