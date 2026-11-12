@@ -1,6 +1,6 @@
 {
   "name": "Proof Creative",
-  "short_name": "Proof Creative",
+  "short_name": "Proof",
   "icons": [
     {
       "src": "/assets/favicon-192.png",
@@ -21,8 +21,9 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#111111",
-  "background_color": "#FFFFFF",
+  "theme_color": "#f5f3ee",
+  "background_color": "#f5f3ee",
   "display": "browser",
-  "start_url": "/"
+  "start_url": "/",
+  "scope": "/"
 }
